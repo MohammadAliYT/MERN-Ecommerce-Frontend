@@ -17,7 +17,7 @@
   color: #fff;
   font-size: 1.5rem;
   text-decoration: none;
-  margin-left: 10vh;
+  /* margin-left: 10vh; */
 }
 
 .menu-toggle {
@@ -37,7 +37,7 @@
 
 .search-box {
   position: relative;
-  margin-right: 10vh;
+  /* margin-right: 10vh; */
 }
 
 .search-input {
