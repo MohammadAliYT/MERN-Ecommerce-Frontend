@@ -4,7 +4,7 @@ import "./Header.css";
 const Header = () => {
   return (
     <nav className="navbar">
-      <div className="container">
+      <div className="header-container">
         <a href="#" className="logo">
           Logo
         </a>
@@ -32,6 +32,7 @@ const Header = () => {
           <a href="#" className="menu-item">
             Meow
           </a>
+
           <div className="search-box">
             <input
               type="text"

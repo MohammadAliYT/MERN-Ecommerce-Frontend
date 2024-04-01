@@ -2,11 +2,9 @@ import React, { useEffect } from "react";
 import { CgMouse } from "react-icons/cg";
 import "./Home.css";
 import Product from "../Product/Product.jsx";
-// // import MetaData from "../layout/MetaData";
-// import { clearErrors, getProduct } from "../../actions/productAction";
-// import { useSelector, useDispatch } from "react-redux";
-// import Loader from "../layout/Loader/Loader";
-// import { useAlert } from "react-alert";
+import MetaData from "../Metadata/MetaData.jsx";
+import { useSelector, useDispatch } from "react-redux";
+import { clearErrors, getProduct } from "../../../actions/productActions.jsx";
 
 const Home = () => {
   const product = {
@@ -15,17 +13,29 @@ const Home = () => {
     price: "100",
     _id: "random",
   };
-  //   const alert = useAlert();
-  //   const dispatch = useDispatch();
-  //   const { loading, error, products } = useSelector((state) => state.products);
 
-  //   useEffect(() => {
-  //     if (error) {
-  //       alert.error(error);
-  //       dispatch(clearErrors());
-  //     }
-  //     dispatch(getProduct());
-  //   }, [dispatch, error, alert]);
+  const dispatch = useDispatch();
+  // const { loading, error, products } = useSelector((state) => state.products);
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch("/api/v1/products"); // Relative URL handled by proxy
+      const data = await response.json();
+      console.log("fetchdata ", data);
+      // Use the fetched data in your component
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    // if (error) {
+    //   alert.error(error);
+    //   dispatch(clearErrors());
+    // }
+    fetchData();
+    dispatch(getProduct());
+  }, [dispatch]);
 
   return (
     // <Fragment>
@@ -35,6 +45,7 @@ const Home = () => {
     //     <Fragment>
     //       <MetaData title="ECOMMERCE" />
     <>
+      <MetaData title="Bawa" />
       <div className="banner">
         <p>Welcome to Ecommerce</p>
         <h1>FIND AMAZING PRODUCTS BELOW</h1>
@@ -49,6 +60,10 @@ const Home = () => {
 
       <h2 className="homeHeading">Featured Products</h2>
       <div className="container" id="container">
+        <Product product={product} />
+        <Product product={product} />
+        <Product product={product} />
+        <Product product={product} />
         <Product product={product} />
       </div>
     </>

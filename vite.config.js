@@ -7,4 +7,9 @@ export default defineConfig({
   resolve: {
     extensions: [".js", ".jsx", ".json"], // Add '.jsx' to the extensions array
   },
+  server: {
+    proxy: {
+      "/api": "http://localhost:4000/", // the address that u serve in the backend
+    },
+  },
 });

@@ -1,44 +1,35 @@
-/* Footer.css */
-
 .footer {
-  left: 0;
-  bottom: 0;
-  width: 100%;
   background-color: #333;
-  color: #fff;
-  padding: 20px 20vh;
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  /* Change to single column layout by default */
+  padding: 20px 0;
+  text-align: center;
 }
 
-@media screen and (min-width: 600px) {
-  .footer {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media screen and (min-width: 900px) {
-  .footer {
-    grid-template-columns: repeat(3, 1fr);
-    padding: 20px 20vh;
-
-    /* Three columns layout for large screens */
-  }
+.footer-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Makes columns stack on small screens */
+  width: 80%;
+  margin: 0 auto;
 }
 
 .footer-column {
-  width: 100%;
+  flex: 1; /* Makes columns even width on larger screens */
+  padding: 10px;
+  text-align: left;
+  /* Additional styles for responsiveness */
 }
 
-.footer-column h3 {
-  margin-top: 0;
+/* Media queries for different screen sizes */
+@media (max-width: 768px) {
+  .footer-column {
+    flex: unset; /* Removes even width on smaller screens */
+    width: 100%; /* Columns take full width */
+  }
 }
 
-.footer p {
-  margin: 5px 0;
-}
-
-.copyright {
-  font-size: 12px;
+@media (min-width: 768px) and (max-width: 1024px) {
+  .footer-column {
+    /* Adjust column width for medium screens (optional) */
+    width: 50%;
+  }
 }

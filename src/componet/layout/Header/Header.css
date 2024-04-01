@@ -1,23 +1,25 @@
 /* Navbar */
 .navbar {
   background-color: #333;
-  padding: 10px 0;
   width: 100vw;
-  justify-content: center; /* Horizontally center */
-  align-items: center; /* Vertically center */
+  padding-top: 10px;
+  padding-bottom: 10px;
+  justify-content: center;
+  align-items: center;
 }
 
-.container {
+.header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 .logo {
   color: #fff;
   font-size: 1.5rem;
   text-decoration: none;
-  /* margin-left: 10vh; */
+  padding-left: 10vh;
 }
 
 .menu-toggle {
@@ -37,7 +39,7 @@
 
 .search-box {
   position: relative;
-  /* margin-right: 10vh; */
+  margin-right: 10vh;
 }
 
 .search-input {
