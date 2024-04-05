@@ -31,7 +31,7 @@ import {
   DELETE_REVIEW_SUCCESS,
   DELETE_REVIEW_FAIL,
   DELETE_REVIEW_RESET,
-  CLEAR_ERROR,
+  CLEAR_ERRORS,
 } from "../constants/productConstants";
 
 export const productsReducer = (state = { products: [] }, action) => {
@@ -55,7 +55,7 @@ export const productsReducer = (state = { products: [] }, action) => {
         error: action.payload,
       };
 
-    case CLEAR_ERROR:
+    case CLEAR_ERRORS:
       return {
         ...state,
         error: null,
@@ -83,7 +83,7 @@ export const productDetailsReducer = (state = { product: {} }, action) => {
         error: action.payload,
       };
 
-    case CLEAR_ERROR:
+    case CLEAR_ERRORS:
       return {
         ...state,
         error: null,
