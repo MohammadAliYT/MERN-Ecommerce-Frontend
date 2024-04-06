@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { CgMouse } from "react-icons/cg";
 import "./Home.css";
-import Product from "../Product/Product.jsx";
+import ProductCard from "../Product/ProductCard.jsx";
 import MetaData from "../Metadata/MetaData.jsx";
 import { useSelector, useDispatch } from "react-redux";
 import { clearErrors, getProduct } from "../../../actions/productActions.jsx";
@@ -15,22 +15,18 @@ const Home = () => {
 
   const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
 
-  const notify = (error) => {
-    toast.success(error, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: false,
-      progress: undefined,
-      theme: prefersDarkMode.matches ? "dark" : "light",
-    });
-  };
-
   useEffect(() => {
     if (error) {
-      toast.error(error);
+      toast.error(error, {
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+        theme: prefersDarkMode.matches ? "dark" : "light",
+      });
+      dispatch(clearErrors());
     }
     dispatch(getProduct());
   }, [dispatch, error]);
@@ -59,7 +55,7 @@ const Home = () => {
           <div className="container" id="container">
             {products &&
               products.map((product) => (
-                <Product key={product._id} product={product} />
+                <ProductCard key={product._id} product={product} />
               ))}
           </div>
         </>
