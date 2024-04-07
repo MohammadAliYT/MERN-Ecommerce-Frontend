@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 import ReviewCard from "./ReviewCard.jsx";
 import { toast } from "react-toastify";
+import MetaData from "../layout/Metadata/MetaData.jsx";
 
 const ProductDetails = () => {
   const params = useParams();
@@ -44,6 +45,7 @@ const ProductDetails = () => {
         <p>Loading</p>
       ) : (
         <>
+          <MetaData title={`${product.name}`} />
           <div className="ProductDetails">
             <div>
               {/* <Carousel> */}

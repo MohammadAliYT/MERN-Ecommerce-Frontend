@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { loading, error, products, productCount } = useSelector((state) => {
+  const { loading, error, products } = useSelector((state) => {
     return state.products;
   });
 
